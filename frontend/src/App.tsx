@@ -1,11 +1,7 @@
-import { Signup} from "./pages/SignUp.tsx";
+import Landing from "./components/Landing";
 
 function App() {
-    return (
-        <>
-            <Signup/>
-        </>
-    )
+  return <Landing />;
 }
 
-export default App
+export default App;
