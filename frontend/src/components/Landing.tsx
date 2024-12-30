@@ -1,3 +1,4 @@
+import LoginButton from "./ui/Login";
 import { BackgroundLines } from "./ui/BackgroundLines";
 
 export default function Landing() {
@@ -16,11 +17,7 @@ export default function Landing() {
           className="bg-neutral-800 min-w-[200px] sm:min-w-[300px] z-10 py-3.5 rounded-lg px-4 placeholder:text-neutral-400 placeholder:opacity-80 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-60 dark:bg-neutral-900 dark:placeholder-neutral-500 dark:text-white dark:focus:ring-teal-400 dark:focus:ring-opacity-60 transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl focus:shadow-xl border border-transparent focus:border-teal-400"
           placeholder="linksnap.dev/yourname"
         />
-
-        {/* Button */}
-        <button className="bg-gradient-to-r from-teal-500 to-blue-600 text-white flex justify-center items-center gap-2 py-2 px-4 sm:py-3 sm:px-6 rounded-xl text-sm sm:text-lg font-semibold shadow-md hover:bg-gradient-to-r hover:from-blue-600 hover:to-teal-500 transition-all duration-200 ease-in-out transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-50 active:scale-95">
-          Claim your link
-        </button>
+        <LoginButton name="Claim your link" />
       </div>
     </BackgroundLines>
   );
