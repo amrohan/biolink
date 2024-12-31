@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { Signup } from "./pages/SignUp.tsx";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { Editor } from "./pages/Editor.tsx";
+import { LinksProvider } from "./context/LinksContext.tsx";
 
 const router = createBrowserRouter([
   {
@@ -24,14 +25,16 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Auth0Provider
-      domain="amrohan.eu.auth0.com"
-      clientId="eeOt4kNjickEWWXT6Rd4RrmQlmgWuMYu"
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
-    >
-      <RouterProvider router={router} />
-    </Auth0Provider>
+    <LinksProvider>
+      <Auth0Provider
+        domain="amrohan.eu.auth0.com"
+        clientId="eeOt4kNjickEWWXT6Rd4RrmQlmgWuMYu"
+        authorizationParams={{
+          redirect_uri: window.location.origin,
+        }}
+      >
+        <RouterProvider router={router} />
+      </Auth0Provider>
+    </LinksProvider>
   </StrictMode>
 );

@@ -1,7 +1,9 @@
 
 import { Avatar } from 'antd';
+import { useLinks } from '../../context/LinksContext';
 
 export function MockMobile() {
+  const { links, setLinks } = useLinks()
   const data = [
     {
       id: 1,
@@ -50,12 +52,12 @@ export function MockMobile() {
         </div>
         {/* Content */}
         <main className='flex flex-col justify-center items-center gap-2 relative px-2'>
-          {data.map((item) => (
-            <a key={item.id}
+          {links.map((item, index) => (
+            <a key={index}
               href={item.url}
               className={`h-10 w-full text-sm rounded-md px-4 flex justify-center items-center ${style}`}
             >
-              {item.name}
+              {item.title}
             </a>
           ))}
 

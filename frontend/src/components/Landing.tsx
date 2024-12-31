@@ -14,7 +14,7 @@ export default function Landing() {
         {/* Input Field */}
         <input
           type="text"
-          className="bg-neutral-800 min-w-[200px] sm:min-w-[300px] z-10 py-3.5 rounded-lg px-4 placeholder:text-neutral-400 placeholder:opacity-80 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-60 dark:bg-neutral-900 dark:placeholder-neutral-500 dark:text-white dark:focus:ring-teal-400 dark:focus:ring-opacity-60 transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl focus:shadow-xl border border-transparent focus:border-teal-400"
+          className="bg-slate-200 min-w-[200px] sm:min-w-[300px] z-10 py-3.5 rounded-lg px-4 placeholder:text-neutral-400 placeholder:opacity-80 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-60 dark:bg-neutral-900 dark:placeholder-neutral-500 dark:text-white dark:focus:ring-teal-400 dark:focus:ring-opacity-60 transition-all duration-300 ease-in-out focus:shadow-xl border border-transparent focus:border-teal-400"
           placeholder="linksnap.dev/yourname"
         />
         <LoginButton name="Claim your link" />
