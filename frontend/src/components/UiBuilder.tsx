@@ -38,9 +38,7 @@ export default function UiBuilder() {
   const [isSocialOpen, setSocialOpen] = useState(false)
   const [form] = Form.useForm();
   const [socialForm] = Form.useForm();
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
+  const [isEditing, setIsEdting] = useState(false);
 
   const iconLinks = [
     {
@@ -70,13 +68,23 @@ export default function UiBuilder() {
     },
   ];
 
-  // hnadling ui
   const handleOk = () => {
     form
       .validateFields()
       .then((values) => {
-        setLinks((prevLinks) => [...prevLinks, values]);
+        // Update or add the link
+        setLinks((prevLinks) => {
+          const updatedLinks = [...prevLinks];
+          const index = updatedLinks.findIndex((link) => link.url === values.url);
+          if (index >= 0) {
+            updatedLinks[index] = values;
+          } else {
+            updatedLinks.push(values);
+          }
+          return updatedLinks;
+        });
         console.log("Event Submitted:", values);
+        setIsEdting(false)
         setIsModalOpen(false);
         form.resetFields();
       })
@@ -87,8 +95,14 @@ export default function UiBuilder() {
 
   const handleCancel = () => {
     setIsModalOpen(false);
+    setIsEdting(false)
     form.resetFields();
   };
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
 
   const handleSocialOk = () => {
     socialForm.validateFields()
@@ -105,6 +119,12 @@ export default function UiBuilder() {
     setSocialOpen(false);
     socialForm.resetFields();
   };
+
+  const handleOnEdit = (data: Url) => {
+    setIsEdting(true)
+    form.setFieldsValue(data)
+    setIsModalOpen(true)
+  }
 
   return (
     <main className="w-full h-full rounded-md p-4 bg-white border">
@@ -142,7 +162,7 @@ export default function UiBuilder() {
       </div>
 
       <Modal
-        title="Add link"
+        title={!isEditing ? 'Add Link' : 'Edit Link'}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -174,7 +194,7 @@ export default function UiBuilder() {
         <h2 className="font-semibold text-sm md:text-base p-4">Links</h2>
         <ul className=" mb-10 w-full max-h-96 overflow-x-hidden ">
           {links.map((link, index) => (
-            <LinkCard {...link} key={index}
+            <LinkCard {...link} key={index} onEdit={handleOnEdit}
             />
           ))}
         </ul>

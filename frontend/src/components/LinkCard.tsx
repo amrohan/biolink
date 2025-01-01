@@ -4,10 +4,17 @@ import { Url } from './UiBuilder'
 
 const { Meta } = Card;
 
-export const LinkCard = (props: Url) => {
+export const LinkCard = (props: Url & { onEdit: (data: Url) => void }) => {
 
   const handleEditClick = () => {
     console.log('Edit clicked');
+    props.onEdit({
+      id: props.id,
+      title: props.title,
+      url: props.url,
+      userId: '',
+      views: 0,
+    });
   };
 
   const handleViewClick = () => {

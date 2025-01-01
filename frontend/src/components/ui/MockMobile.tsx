@@ -20,11 +20,11 @@ export function MockMobile() {
   const { links } = useLinks()
 
   const [theme, setTheme] = useState<Theme>({
-    bgColor: 'bg-gray-50',
-    textColor: 'text-black',
-    subTextColor: 'text-gray-500',
-    cardColor: 'bg-white',
-    cardTextColor: 'text-gray-800',
+    "bgColor": "bg-white", //Monochrome 
+    "textColor": "text-neutral-900",
+    "subTextColor": "text-neutral-500",
+    "cardColor": "bg-zinc-800",
+    "cardTextColor": "text-zinc-50"
   });
 
 
@@ -38,7 +38,7 @@ export function MockMobile() {
     },
 
     "2": {
-      "bgColor": "bg-white", // Dark
+      "bgColor": "bg-white", //Monochrome 
       "textColor": "text-neutral-900",
       "subTextColor": "text-neutral-500",
       "cardColor": "bg-zinc-800",
@@ -50,6 +50,7 @@ export function MockMobile() {
     { value: '1', label: 'Dark' },
     { value: '2', label: 'Monochrome' },
   ];
+
   const handleChange = (value: string): void => {
     const selectedTheme = themeConfigs[value] || {
       bgColor: '',
@@ -77,6 +78,7 @@ export function MockMobile() {
           options={options}
         />
       </div>
+      {/* MobileUI */}
       <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[550px] w-[300px] shadow-xl">
         <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
         <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
