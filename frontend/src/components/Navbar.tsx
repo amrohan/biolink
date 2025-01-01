@@ -1,10 +1,51 @@
-import { Avatar } from "antd";
+import { LogoutOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
+import { Avatar, Dropdown, MenuProps } from "antd";
 
 
 export function Navbar() {
+
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: 'My Account',
+      disabled: true,
+    },
+    {
+      type: 'divider',
+    },
+    {
+      key: '2',
+      label: 'Profile',
+      icon: <UserOutlined />
+      // extra: '⌘P',
+    },
+    {
+      key: '3',
+      label: 'Settings',
+      icon: <SettingOutlined />,
+      // extra: '⌘S',
+    },
+    {
+      key: "4",
+      label: 'Log Out',
+      danger: true,
+      icon: <LogoutOutlined />
+    }
+  ];
+
+  const handleMenuClick: MenuProps['onClick'] = (e) => {
+    console.dir(e)
+  }
+
+  const menuProps = {
+    items,
+    onClick: handleMenuClick,
+  };
+
+
   return (
     <>
-      <header className="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white border-b-2 vird text-sm py-3">
+      <header className="flex flex-wrap sm:justify-start sm:flex-nowrap shadow-none w-full bg-white border-b vird text-sm py-3">
         <nav className="max-w-[85rem] w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-between">
           <a className="sm:order-1 flex-none text-xl font-semibold text-neutral-900 focus:outline-none focus:opacity-80" href="#">BioLink</a>
           <div className="sm:order-3 flex items-center gap-x-2">
@@ -13,7 +54,9 @@ export function Navbar() {
               <svg className="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
               <span className="sr-only">Toggle</span>
             </button>
-            <Avatar size={36}>U</Avatar>
+            <Dropdown menu={menuProps} trigger={["click"]} >
+              <Avatar size={36} className="cursor-pointer" onClick={(e) => e?.preventDefault()}>U</Avatar>
+            </Dropdown>
           </div>
           <div id="hs-navbar-alignment" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:grow-0 sm:basis-auto sm:block sm:order-2" aria-labelledby="hs-navbar-alignment-collapse">
             <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">

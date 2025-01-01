@@ -107,75 +107,71 @@ export default function UiBuilder() {
   };
 
   return (
-    <>
-      <main className="w-full h-full rounded-md p-4 bg-white border">
-        <div className="mi-h-28 max-h-fit mt-6 flex flex-col md:flex-row justify-start items-start w-full">
-          <div className="w-full md:w-11/12 flex flex-col md:flex-row justify-start items-center gap-6">
-            <Avatar
-              style={{ fontSize: "16px" }}
-              size={80} >
-              User
-            </Avatar>
-            <div className="flex flex-col justify-start items-center md:items-start">
-              <h1 className="font-semibold">Rohan Salunkhe</h1>
-              <p className=" text-sm  text-neutral-600">Code smarter</p>
-              <div className="flex justify-start items-center gap-2 mt-2">
-                {iconLinks.map((item) => (
-                  <Button icon={item.icon} key={item.title}
-                    onClick={() => setSocialOpen(true)}
-                  >
-                  </Button>
-                ))}
-              </div>
+    <main className="w-full h-full rounded-md p-4 bg-white border">
+      <div className="mi-h-28 max-h-fit mt-6 flex flex-col md:flex-row justify-start items-start w-full">
+        <div className="w-full md:w-11/12 flex flex-col md:flex-row justify-start items-center gap-6">
+          <Avatar
+            style={{ fontSize: "16px" }}
+            size={80} >
+            User
+          </Avatar>
+          <div className="flex flex-col justify-start items-center md:items-start">
+            <h1 className="font-semibold">Rohan Salunkhe</h1>
+            <p className=" text-sm  text-neutral-600">Code smarter</p>
+            <div className="flex justify-start items-center gap-2 mt-2">
+              {iconLinks.map((item) => (
+                <Button icon={item.icon} key={item.title}
+                  onClick={() => setSocialOpen(true)}
+                >
+                </Button>
+              ))}
             </div>
           </div>
-          <div className="w-full mt-6 md:mt-0 md:w-1/12 flex justify-end items-center">
-            <Button
-              size="middle"
-              block
-              type="primary"
-              icon={<PlusOutlined />}
-              onClick={showModal}
-            >
-              Add
-            </Button>
-          </div>
         </div>
+        <div className="w-full mt-6 md:mt-0 md:w-1/12 flex justify-end items-center">
+          <Button
+            size="middle"
+            block
+            type="primary"
+            icon={<PlusOutlined />}
+            onClick={showModal}
+          >
+            Add
+          </Button>
+        </div>
+      </div>
 
-        <Modal
-          title="Add link"
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <Form form={form} layout="vertical">
-            <Form.Item
-              name="title"
-              label="Title"
-              rules={[{ required: true, message: "Please enter a title." }]}
-            >
-              <Input placeholder="Enter title" />
-            </Form.Item>
-            <Form.Item
-              name="url"
-              label="URL"
-              rules={[
-                { required: true, message: "Please enter a URL." },
-                {
-                  type: "url",
-                  message: "Please enter a valid URL (e.g., https://example.com).",
-                },
-              ]}
-            >
-              <Input placeholder="Enter your link" />
-            </Form.Item>
-          </Form>
-        </Modal>
-
-      </main>
-
+      <Modal
+        title="Add link"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <Form form={form} layout="vertical">
+          <Form.Item
+            name="title"
+            label="Title"
+            rules={[{ required: true, message: "Please enter a title." }]}
+          >
+            <Input placeholder="Enter title" />
+          </Form.Item>
+          <Form.Item
+            name="url"
+            label="URL"
+            rules={[
+              { required: true, message: "Please enter a URL." },
+              {
+                type: "url",
+                message: "Please enter a valid URL (e.g., https://example.com).",
+              },
+            ]}
+          >
+            <Input placeholder="Enter your link" />
+          </Form.Item>
+        </Form>
+      </Modal>
       <div className="mt-6 w-full bg-white p-2 rounded-md border">
-        <h2 className="font-semibold  p-4">Links</h2>
+        <h2 className="font-semibold text-sm md:text-base p-4">Links</h2>
         <ul className=" mb-10 w-full max-h-96 overflow-x-hidden ">
           {links.map((link, index) => (
             <LinkCard {...link} key={index}
@@ -214,10 +210,7 @@ export default function UiBuilder() {
           ))}
         </Form>
       </Modal>
-
-
-
-    </>
+    </main>
   );
 }
 
