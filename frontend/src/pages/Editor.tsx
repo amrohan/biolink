@@ -8,8 +8,8 @@ export function Editor() {
     <>
       <Navbar />
       <section className="max-w-[85rem] w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-between">
-        <main className="flex flex-col md:flex-row mx-auto justify-between items-start gap-16 md:gap-2 w-full mt-8">
-          <div className="w-full md:w-9/12 ">
+        <main className="flex flex-col md:flex-row mx-auto justify-between items-start gap-16 md:gap-20 w-full mt-8">
+          <div className="w-full md:w-9/12">
             <UiBuilder />
           </div>
 

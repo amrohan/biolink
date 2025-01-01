@@ -7,6 +7,7 @@ import { Signup } from "./pages/SignUp.tsx";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { Editor } from "./pages/Editor.tsx";
 import { LinksProvider } from "./context/LinksContext.tsx";
+import { ConfigProvider, theme } from "antd";
 
 const router = createBrowserRouter([
   {
@@ -26,15 +27,21 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <LinksProvider>
-      <Auth0Provider
-        domain="amrohan.eu.auth0.com"
-        clientId="eeOt4kNjickEWWXT6Rd4RrmQlmgWuMYu"
-        authorizationParams={{
-          redirect_uri: window.location.origin,
+      <ConfigProvider
+        theme={{
+          algorithm: theme.compactAlgorithm,
         }}
       >
-        <RouterProvider router={router} />
-      </Auth0Provider>
+        <Auth0Provider
+          domain="amrohan.eu.auth0.com"
+          clientId="eeOt4kNjickEWWXT6Rd4RrmQlmgWuMYu"
+          authorizationParams={{
+            redirect_uri: window.location.origin,
+          }}
+        >
+          <RouterProvider router={router} />
+        </Auth0Provider>
+      </ConfigProvider>
     </LinksProvider>
   </StrictMode>
 );

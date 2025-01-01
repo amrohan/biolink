@@ -19,7 +19,7 @@ export const LinkCard = (props: Url) => {
   };
   return (
     <Card
-      style={{ marginTop: "1rem" }}
+      style={{ marginTop: "1rem"}}
       actions={[
         <div className='flex h-7 justify-center items-center gap-1'>
           <p className='text-xs'>10</p>

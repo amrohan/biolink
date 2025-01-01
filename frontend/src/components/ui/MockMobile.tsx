@@ -3,30 +3,7 @@ import { Avatar } from 'antd';
 import { useLinks } from '../../context/LinksContext';
 
 export function MockMobile() {
-  const { links, setLinks } = useLinks()
-  const data = [
-    {
-      id: 1,
-      name: "Instagram",
-      url: "https://instagram.com"
-    },
-    {
-      id: 2,
-      name: "Github",
-      url: "https://instagram.com"
-    },
-    {
-      id: 3,
-      name: "Youtube",
-      url: "https://instagram.com"
-    },
-    {
-      id: 4,
-      name: "LinkedIn",
-      url: "https://instagram.com"
-    }
-  ]
-
+  const { links } = useLinks()
   const style = "bg-zinc-700 text-slate-50"
   return (
     <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
@@ -40,7 +17,7 @@ export function MockMobile() {
           <div className='grid place-content-center'>
             <Avatar
               style={{ fontSize: "16px" }}
-              size={{ lg: 64, xl: 80, xxl: 100 }}
+              size={75}
             >
               User
             </Avatar>
