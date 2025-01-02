@@ -127,8 +127,8 @@ export default function UiBuilder() {
   }
 
   return (
-    <main className="w-full h-full rounded-md p-4 bg-white border">
-      <div className="mi-h-28 max-h-fit mt-6 flex flex-col md:flex-row justify-start items-start w-full">
+    <main className="w-full h-full rounded-md">
+      <div className="mi-h-28 max-h-fit  flex flex-col md:flex-row justify-start items-start w-full">
         <div className="w-full md:w-11/12 flex flex-col md:flex-row justify-start items-center gap-6">
           <Avatar
             style={{ fontSize: "16px" }}
@@ -151,6 +151,7 @@ export default function UiBuilder() {
         <div className="w-full mt-6 md:mt-0 md:w-1/12 flex justify-end items-center">
           <Button
             size="middle"
+            className="px-10"
             block
             type="primary"
             icon={<PlusOutlined />}
@@ -190,9 +191,9 @@ export default function UiBuilder() {
           </Form.Item>
         </Form>
       </Modal>
-      <div className="mt-6 w-full bg-white p-2 rounded-md border">
+      <div className="mt-6 w-full  rounded-md">
         <h2 className="font-semibold text-sm md:text-base p-4">Links</h2>
-        <ul className=" mb-10 w-full max-h-96 overflow-x-hidden ">
+        <ul className="mb-10 w-full max-h-96 overflow-x-hidden">
           {links.map((link, index) => (
             <LinkCard {...link} key={index} onEdit={handleOnEdit}
             />

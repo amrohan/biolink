@@ -7,8 +7,9 @@ import { Signup } from "./pages/SignUp.tsx";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { Editor } from "./pages/Editor.tsx";
 import { LinksProvider } from "./context/LinksContext.tsx";
-import { ConfigProvider, theme } from "antd";
+import { ConfigProvider } from "antd";
 import PrivateRoute from "./components/privateRoute.tsx";
+import Admin from "./components/admin.tsx";
 
 const domain = import.meta.env.VITE_AUTH0_DOMAIN;
 const clienID = import.meta.env.VITE_AUTH0_CLIENT_ID;
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/admin",
+    element: <Admin />
   },
   {
     path: "/editor",
@@ -37,7 +42,7 @@ createRoot(document.getElementById("root")!).render(
     <LinksProvider>
       <ConfigProvider
         theme={{
-          algorithm: theme.compactAlgorithm,
+          //       algorithm: theme.compactAlgorithm,
         }}
       >
         <Auth0Provider

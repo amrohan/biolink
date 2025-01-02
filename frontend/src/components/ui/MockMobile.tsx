@@ -63,21 +63,7 @@ export function MockMobile() {
   };
 
   return (
-    <main className='w-full bg-white border rounded-md py-6 flex flex-col md:flex-row justify-between items-start gap-2 '>
-      <div className='ml-4 mb-8 md:mb-0 z-20'>
-        <p className='text-xs py-1.5'>Select Theme</p>
-        <Select
-          showSearch
-          style={{ width: 200 }}
-          placeholder="Select Theme"
-          optionFilterProp="label"
-          filterSort={(optionA, optionB) =>
-            (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
-          }
-          onChange={handleChange}
-          options={options}
-        />
-      </div>
+    <main className='w-full rounded-md flex flex-col md:flex-row justify-between items-start gap-2 '>
       {/* MobileUI */}
       <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[550px] w-[300px] shadow-xl">
         <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
@@ -115,6 +101,30 @@ export function MockMobile() {
           </main>
 
         </div>
+      </div>
+
+      <div className=' mb-8 md:mb-0 z-20'>
+
+        <div className='mb-10 bg-slate-100 h-10 rounded-md grid place-content-center'>
+          <a className='flex justify-center items-center gap-1.5 hover:text-blue-600'>
+            <p className='text-xs py-1.5'>Visit Page</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+              className="size-4"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
+          </a>
+        </div>
+        <p className='text-xs py-1.5'>Select Theme</p>
+        <Select
+          showSearch
+          style={{ width: 200 }}
+          placeholder="Select Theme"
+          optionFilterProp="label"
+          filterSort={(optionA, optionB) =>
+            (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+          }
+          onChange={handleChange}
+          options={options}
+        />
+
       </div>
     </main>
   )
