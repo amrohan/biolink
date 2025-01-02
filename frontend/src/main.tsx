@@ -8,6 +8,10 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { Editor } from "./pages/Editor.tsx";
 import { LinksProvider } from "./context/LinksContext.tsx";
 import { ConfigProvider, theme } from "antd";
+import PrivateRoute from "./components/privateRoute.tsx";
+
+const domain = import.meta.env.VITE_AUTH0_DOMAIN;
+const clienID = import.meta.env.VITE_AUTH0_CLIENT_ID;
 
 const router = createBrowserRouter([
   {
@@ -20,7 +24,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/editor",
-    element: <Editor />,
+    element: (
+      <PrivateRoute>
+        <Editor />
+      </PrivateRoute>
+    ),
   }
 ]);
 
@@ -33,8 +41,8 @@ createRoot(document.getElementById("root")!).render(
         }}
       >
         <Auth0Provider
-          domain="amrohan.eu.auth0.com"
-          clientId="eeOt4kNjickEWWXT6Rd4RrmQlmgWuMYu"
+          domain={domain}
+          clientId={clienID}
           authorizationParams={{
             redirect_uri: window.location.origin,
           }}

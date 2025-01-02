@@ -1,9 +1,10 @@
 import { LogoutOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Avatar, Dropdown, MenuProps } from "antd";
 
 
 export function Navbar() {
-
+  const { user, logout } = useAuth0();
   const items: MenuProps['items'] = [
     {
       key: '1',
@@ -34,6 +35,9 @@ export function Navbar() {
   ];
 
   const handleMenuClick: MenuProps['onClick'] = (e) => {
+    if (e.key === "4") {
+      logout({ logoutParams: { returnTo: window.location.origin } })
+    }
     console.dir(e)
   }
 
@@ -41,7 +45,6 @@ export function Navbar() {
     items,
     onClick: handleMenuClick,
   };
-
 
   return (
     <>
@@ -55,7 +58,7 @@ export function Navbar() {
               <span className="sr-only">Toggle</span>
             </button>
             <Dropdown menu={menuProps} trigger={["click"]} >
-              <Avatar size={36} className="cursor-pointer" onClick={(e) => e?.preventDefault()}>U</Avatar>
+              <Avatar size={36} src={user?.picture} className="cursor-pointer" onClick={(e) => e?.preventDefault()} />
             </Dropdown>
           </div>
           <div id="hs-navbar-alignment" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:grow-0 sm:basis-auto sm:block sm:order-2" aria-labelledby="hs-navbar-alignment-collapse">
