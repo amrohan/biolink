@@ -1,4 +1,3 @@
-
 import { FacebookOutlined, GithubOutlined, InstagramOutlined, LinkedinOutlined, PlusOutlined, TwitterOutlined } from "@ant-design/icons";
 import { Avatar, Button, Form, Input, Modal } from "antd";
 import { useState } from "react";
@@ -103,7 +102,6 @@ export default function UiBuilder() {
     setIsModalOpen(true);
   };
 
-
   const handleSocialOk = () => {
     socialForm.validateFields()
       .then((values) => {
@@ -128,7 +126,7 @@ export default function UiBuilder() {
 
   return (
     <main className="w-full h-full rounded-md">
-      <div className="mi-h-28 max-h-fit  flex flex-col md:flex-row justify-start items-start w-full">
+      <div className="mi-h-28 max-h-fit flex flex-col md:flex-row justify-start items-start w-full">
         <div className="w-full md:w-11/12 flex flex-col md:flex-row justify-start items-center gap-6">
           <Avatar
             style={{ fontSize: "16px" }}
