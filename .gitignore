@@ -1,0 +1,43 @@
+# Ignore node_modules inside backend and frontend
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Ignore .env files inside backend and frontend
+backend/.env
+frontend/.env
+backend/.env.local
+frontend/.env.local
+backend/.env.*.local
+frontend/.env.*.local
+
+# Ignore database files
+backend/*.db
+backend/prisma/dev.db
+
+# Ignore npm log files
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Build output
+/dist/
+/build/
+
+# MacOS system files
+.DS_Store
+
+# VSCode settings
+.vscode/
+
+# Log files
+*.log
+
+# Coverage folder (used by testing frameworks like Jest)
+coverage/
+
+# Temporary files
+*.swp
+*.swo
+*.bak
+*.tmp

@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  auth0Id  String  @unique
+  name     String? // Optional field for the user's full name
+  username String  @unique // Required and unique field for the user's username
+  picture  String? // Optional field for the user's profile picture URL
+  links    Link[] // Relationship to the user's links
+  themeId  Int     @default(1) // Default theme ID set to 1
+  theme    Theme   @relation(fields: [themeId], references: [id]) // Relationship to the Theme table
+}
+
+model Link {
+  id     Int    @id @default(autoincrement())
+  title  String
+  url    String
+  views  Int    @default(0)
+  userId Int
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model Theme {
+  id            Int     @id @default(autoincrement())
+  themeName     String  @default("Monochrome")
+  bgColor       String  @default("#FFFFFF") // Default background color
+  textColor     String  @default("#000000") // Default text color
+  subTextColor  String  @default("#666666") // Default subtext color
+  cardColor     String  @default("#F0F0F0") // Default card color
+  cardTextColor String  @default("#333333") // Default card text color
+  bgImage       String? // Optional background image URL
+  users         User[]  // Relationship to users who use this theme
+}
